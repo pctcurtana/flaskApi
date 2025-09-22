@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from loadModel import get_recommendations
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -26,6 +27,5 @@ def recommends():
 
 
 if __name__ == '__main__':
-    # Khi deploy thực tế, hãy dùng Gunicorn thay vì app.run()
-    # Ví dụ: gunicorn --bind 0.0.0.0:5000 --workers 4 app:app
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
