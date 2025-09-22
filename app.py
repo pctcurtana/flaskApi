@@ -8,7 +8,15 @@ CORS(app)
 
 @app.route('/')
 def home():
-    return "RecBole Two-Stage Recommendation API is running!"
+    js = {
+    "id": "685e24c762e692bdfa5c7f13",
+    "userId": "683537506dfa74193bb28c31",
+    "productId": "685ba96f09ed89b856650872",
+    "action": "VIEW",
+    "created_at": "undefined",
+    "updated_at": "undefined"
+    } 
+    return jsonify(js)
 
 @app.route('/recommends', methods=['POST'])
 def recommends():
@@ -18,7 +26,8 @@ def recommends():
     list_items = ["242", "302", "377"]
     print(get_recommendations(list_items, 5))
 
-    candidate_items = get_recommendations(list_items, 5)    
+    candidate_items = get_recommendations(list_items, 5)   
+    
 
     return jsonify({
         "status": "success",
