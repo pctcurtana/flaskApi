@@ -9,12 +9,11 @@ CORS(app)
 @app.route('/')
 def home():
     js = {
-    "id": "685e24c762e692bdfa5c7f13",
-    "userId": "683537506dfa74193bb28c31",
-    "productId": "685ba96f09ed89b856650872",
+    "id": "9999",
+    "name": "thatx2",
+    "class": "KTPM2211",
     "action": "VIEW",
-    "created_at": "undefined",
-    "updated_at": "undefined"
+    "language" : "Javascript"
     } 
     return jsonify(js)
 
