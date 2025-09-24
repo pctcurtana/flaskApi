@@ -128,7 +128,10 @@ print("Một vài ứng viên:", candidate_items)
   
 def get_recommendations(list_items, K=10):
     candidate_items = generate_candidates_from_history(list_items, model, dataset, device=config['device'], K=K)
-    return candidate_items
+    # Chuyển numpy array thành Python list để có thể serialize JSON
+    if isinstance(candidate_items, np.ndarray):
+        return candidate_items.tolist()
+    return list(candidate_items)
 
 list_items = ["242", "302", "377"]
 print(get_recommendations(list_items))
